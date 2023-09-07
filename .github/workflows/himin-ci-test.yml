@@ -36,8 +36,8 @@ jobs:
 
     - name: Set Yaml
       uses: microsoft/variable-substitution@v1
-      # with:
-      #   files: ./src/main/resources/application.yml 
+      with:
+        files: ./src/main/resources/application.yml 
       env:
         spring.datasource.url: jdbc:mysql://localhost:3306/himin?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
         spring.datasource.username: root
