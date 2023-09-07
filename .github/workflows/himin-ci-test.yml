@@ -30,6 +30,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Make application.properties
+      run: |
+        cd ./src/main/resources
+        touch ./application.properties
+
     - name: Set Yaml
       uses: microsoft/variable-substitution@v1
       with:
