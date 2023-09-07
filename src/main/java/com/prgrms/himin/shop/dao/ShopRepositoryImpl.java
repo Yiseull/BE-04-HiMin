@@ -3,6 +3,9 @@ package com.prgrms.himin.shop.dao;
 import com.prgrms.himin.shop.domain.Category;
 import com.prgrms.himin.shop.domain.Shop;
 import com.prgrms.himin.shop.domain.ShopRepositoryCustom;
+import com.querydsl.core.types.NullExpression;
+import com.querydsl.core.types.Order;
+import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +51,14 @@ public class ShopRepositoryImpl implements ShopRepositoryCustom {
 
     private BooleanExpression loeDeliveryTip(Integer deliveryTip) {
         return deliveryTip != null ? shop.deliveryTip.loe(deliveryTip) : null;
+    }
+}
+
+class OrderByNull extends OrderSpecifier {
+
+    static final OrderByNull DEFAULT = new OrderByNull();
+
+    private OrderByNull() {
+        super(Order.ASC, NullExpression.DEFAULT, NullHandling.Default);
     }
 }
