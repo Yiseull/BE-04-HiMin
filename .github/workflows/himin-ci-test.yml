@@ -32,12 +32,12 @@ jobs:
         echo "${{ secrets.DATABASE_PROPERTIES }}" >> ./application.properties
       shell: bash
 
-    # - name: Setup MySQL
-    #   uses: mirromutth/mysql-action@v1.1
-    #   with:
-    #     mysql database: 'himin' 
-    #     mysql user: 'root'
-    #     mysql password: ${{ secrets.MYSQL_DB_SECRET }}
+    - name: Setup MySQL
+      uses: mirromutth/mysql-action@v1.1
+      with:
+        mysql database: 'himin' 
+        mysql user: 'root'
+        mysql password: ${{ secrets.MYSQL_DB_SECRET }}
         
     - name: Build with Gradle
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
